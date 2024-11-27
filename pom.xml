@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.innotech</groupId>
-    <artifactId>rest</artifactId>
+    <artifactId>rest_template</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -44,7 +44,7 @@
     </dependencies>
 
     <build>
-        <finalName>rest</finalName>
+        <finalName>rest_template</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
