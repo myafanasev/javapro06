@@ -24,17 +24,13 @@ public class RestUserController {
 
     @GetMapping("/{id}/getAllProducts")
     public List<UserProduct> getAllProducts(@PathVariable("id") int idUser) {
-        User user = userService.findId(idUser);
-        if (user==null) throw new UserNotFound(); // если пользователь не найден, бросаем исключение
-        return userProductService.findAllProductClient(user.getId());
+        return userProductService.findAllProductClient(userService.findId(idUser).getId());
     }
 
     // возвращает продукт с id, указанным в параметрах запроса
     @GetMapping("/getProduct")
     @ResponseStatus(HttpStatus.OK)
     public UserProduct getProduct(@RequestParam("id") int idProduct) {
-        UserProduct userProduct = userProductService.findId(idProduct);
-        if (userProduct==null) throw new ProductNotFound(); // если продукт не найден, бросаем исключение
-        return userProduct;
+        return userProductService.findId(idProduct);
     }
 }
