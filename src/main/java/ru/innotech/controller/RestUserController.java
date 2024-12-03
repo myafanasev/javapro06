@@ -33,4 +33,9 @@ public class RestUserController {
     public UserProduct getProduct(@RequestParam("id") int idProduct) {
         return userProductService.findId(idProduct);
     }
+
+    @GetMapping("/changeBalance") // изменение баланса, сумму "спрячем" в теле
+    public UserProduct checkBalance(@RequestParam("id") int idProduct, @RequestBody Double balance) {
+        return userProductService.changeBalance(userProductService.findId(idProduct), balance);
+    }
 }
