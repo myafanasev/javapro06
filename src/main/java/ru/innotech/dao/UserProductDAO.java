@@ -61,4 +61,14 @@ public class UserProductDAO extends ParentDAO{
         statement.close();
         return null;
     }
+
+    @SneakyThrows
+    public UserProduct changeBalance(UserProduct userProduct, double balance) { // изменение баланса на указанную сумму
+        Statement statement = connection.createStatement();
+        userProduct.setBalance(userProduct.getBalance() + balance); // сначала игменим в объекте
+        String query = "update " + tableName + " set " + columns.get("balance") + " = " + userProduct.getBalance() + " where " + columns.get("id") + " = " + userProduct.getId();
+        statement.execute(query);
+        statement.close();
+        return userProduct;
+    }
 }

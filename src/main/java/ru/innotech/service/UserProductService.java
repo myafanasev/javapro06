@@ -27,4 +27,9 @@ public class UserProductService {
         if (userProduct==null) throw new ProductNotFound(); // если продукт не найден, бросаем исключение
         return userProduct;
     }
+
+    public UserProduct changeBalance(UserProduct userProduct, double balance)    // изменить баланс
+    {
+        return userProductDAO.changeBalance(userProduct, balance);
+    }
 }
